@@ -20,7 +20,17 @@ namespace PRsTicketsListing.consts
         public const string DEV_DEPLOYED = "DevDeployed";
         public const string UAT_DEPLOYED = "UatDeployed";
         public const string CLIENT_NOTIFIED = "ClientNotified";
+        public const string QUERIES = "Queries";
         public const string COMMENT = "Comment";
+
+        public static string[] ticketBoolFields = new string[]
+        {
+            "merged",
+            "devDeployed",
+            "uatDeployed",
+            "clientNotified",
+            "queries"
+        };
     }
 
     public static class TicketDBFields
@@ -37,6 +47,7 @@ namespace PRsTicketsListing.consts
         public const string DEV_DEPLOYED = "dev_depl";
         public const string UAT_DEPLOYED = "uat_depl";
         public const string CLIENT_NOTIFIED = "client_notified";
+        public const string QUERIES = "queries";
         public const string COMMENT = "comment";
 
         public static Dictionary<string, string> GetTicketDbFieldsMapped(bool update = false)
@@ -54,6 +65,7 @@ namespace PRsTicketsListing.consts
                 DEV_DEPLOYED,
                 UAT_DEPLOYED,
                 CLIENT_NOTIFIED,
+                QUERIES,
                 COMMENT
             };
 

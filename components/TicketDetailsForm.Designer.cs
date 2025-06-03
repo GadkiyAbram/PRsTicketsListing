@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace PRsTicketsListing.components
 {
-    partial class AddTicketDetailsForm
+    partial class TicketDetailsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -59,11 +59,14 @@ namespace PRsTicketsListing.components
             this.checkBoxUatDeployed = new System.Windows.Forms.CheckBox();
             this.checkBoxClientNotified = new System.Windows.Forms.CheckBox();
             this.btnCancelAdd = new System.Windows.Forms.Button();
-            this.addNewRecordTitle = new System.Windows.Forms.Label();
             this.checkBoxQueries = new System.Windows.Forms.CheckBox();
             this.queriesLabel = new System.Windows.Forms.Label();
             this.btnShowQueries = new System.Windows.Forms.Button();
             this.SuspendLayout();
+
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(this.btnShowQueries, "To see Queries, insert the Ticket Number or have the Ticket already created");
+            toolTip.ShowAlways = true;
             // 
             // btnInsertDetails
             // 
@@ -287,15 +290,6 @@ namespace PRsTicketsListing.components
             this.btnCancelAdd.UseVisualStyleBackColor = true;
             this.btnCancelAdd.Click += new System.EventHandler(this.btnCancelAdd_Click);
             // 
-            // addNewRecordTitle
-            // 
-            this.addNewRecordTitle.AutoSize = true;
-            this.addNewRecordTitle.Location = new System.Drawing.Point(11, 9);
-            this.addNewRecordTitle.Name = "addNewRecordTitle";
-            this.addNewRecordTitle.Size = new System.Drawing.Size(59, 16);
-            this.addNewRecordTitle.TabIndex = 30;
-            this.addNewRecordTitle.Text = "Adding...";
-            // 
             // checkBoxQueries
             // 
             this.checkBoxQueries.AutoSize = true;
@@ -316,22 +310,23 @@ namespace PRsTicketsListing.components
             // 
             // btnShowQueries
             // 
+            this.btnShowQueries.Enabled = false;
             this.btnShowQueries.Location = new System.Drawing.Point(414, 9);
             this.btnShowQueries.Name = "btnShowQueries";
             this.btnShowQueries.Size = new System.Drawing.Size(100, 34);
             this.btnShowQueries.TabIndex = 34;
-            this.btnShowQueries.Text = "Add Queries";
+            this.btnShowQueries.Text = "Queries";
             this.btnShowQueries.UseVisualStyleBackColor = true;
+            this.btnShowQueries.Click += new System.EventHandler(this.showTicketQueries_Click);
             // 
-            // AddTicketDetailsForm
+            // TicketDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 547);
+            this.ClientSize = new System.Drawing.Size(521, 547);
             this.Controls.Add(this.btnShowQueries);
             this.Controls.Add(this.queriesLabel);
             this.Controls.Add(this.checkBoxQueries);
-            this.Controls.Add(this.addNewRecordTitle);
             this.Controls.Add(this.btnCancelAdd);
             this.Controls.Add(this.checkBoxClientNotified);
             this.Controls.Add(this.checkBoxUatDeployed);
@@ -358,7 +353,10 @@ namespace PRsTicketsListing.components
             this.Controls.Add(this.jiraTicketLinkInput);
             this.Controls.Add(this.jiraNumberInput);
             this.Controls.Add(this.btnInsertDetails);
-            this.Name = "AddTicketDetailsForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "TicketDetailsForm";
             this.Text = "New Ticket Details";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -394,7 +392,6 @@ namespace PRsTicketsListing.components
         private CheckBox checkBoxUatDeployed;
         private CheckBox checkBoxClientNotified;
         private Button btnCancelAdd;
-        private Label addNewRecordTitle;
         private CheckBox checkBoxQueries;
         private Label queriesLabel;
         private Button btnShowQueries;

@@ -23,6 +23,7 @@ namespace PRsTicketsListing.models
         public bool DevDeployed { get; set; }
         public bool UatDeployed { get; set; }
         public bool ClientNotified { get; set; }
+        public bool Queries { get; set; }
         public string Comment { get; set; }
     }
 }

@@ -36,6 +36,7 @@ namespace PRsTicketsListing.repositories
                                 DevDeployed = Convert.ToBoolean(reader[TicketDBFields.DEV_DEPLOYED]),
                                 UatDeployed = Convert.ToBoolean(reader[TicketDBFields.UAT_DEPLOYED]),
                                 ClientNotified = Convert.ToBoolean(reader[TicketDBFields.CLIENT_NOTIFIED]),
+                                Queries = Convert.ToBoolean(reader[TicketDBFields.QUERIES]),
                                 Comment = reader[TicketDBFields.COMMENT].ToString()
                             };
 

@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace PRsTicketsListing
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,14 @@ namespace PRsTicketsListing
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ticketsDataTable = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.btnGetTicketsData = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jiraTicketNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jiraTicketLink = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jiraTicketNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.githubLink = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.projectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +47,7 @@ namespace PRsTicketsListing
             this.devDeployed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uatDeployed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientNotified = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.queries = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsDataTable)).BeginInit();
             this.SuspendLayout();
@@ -69,8 +71,8 @@ namespace PRsTicketsListing
             this.devDeployed,
             this.uatDeployed,
             this.clientNotified,
-            this.comment
-            });
+            this.queries,
+            this.comment});
             this.ticketsDataTable.Location = new System.Drawing.Point(12, 64);
             this.ticketsDataTable.Name = "ticketsDataTable";
             this.ticketsDataTable.RowHeadersWidth = 51;
@@ -78,7 +80,6 @@ namespace PRsTicketsListing
             this.ticketsDataTable.Size = new System.Drawing.Size(1428, 684);
             this.ticketsDataTable.TabIndex = 0;
             this.ticketsDataTable.CellDoubleClick += showRecord_DoubleClick;
-            this.ticketsDataTable.AutoGenerateColumns = false;
             // 
             // button1
             // 
@@ -113,19 +114,19 @@ namespace PRsTicketsListing
             this.createdAt.Name = "createdAt";
             this.createdAt.Width = 125;
             // 
-            // jiraTicketNumber
-            // 
-            this.jiraTicketNumber.HeaderText = "Jira Ticket Number";
-            this.jiraTicketNumber.MinimumWidth = 6;
-            this.jiraTicketNumber.Name = "jiraTicketNumber";
-            this.jiraTicketNumber.Width = 125;
-            // 
             // jiraTicketLink
             // 
             this.jiraTicketLink.HeaderText = "Jira Ticket Link";
             this.jiraTicketLink.MinimumWidth = 6;
             this.jiraTicketLink.Name = "jiraTicketLink";
             this.jiraTicketLink.Width = 125;
+            // 
+            // jiraTicketNumber
+            // 
+            this.jiraTicketNumber.HeaderText = "Jira Ticket Number";
+            this.jiraTicketNumber.MinimumWidth = 6;
+            this.jiraTicketNumber.Name = "jiraTicketNumber";
+            this.jiraTicketNumber.Width = 125;
             // 
             // githubLink
             // 
@@ -183,6 +184,13 @@ namespace PRsTicketsListing
             this.clientNotified.Name = "clientNotified";
             this.clientNotified.Width = 125;
             // 
+            // queries
+            // 
+            this.queries.HeaderText = "Queries";
+            this.queries.MinimumWidth = 6;
+            this.queries.Name = "queries";
+            this.queries.Width = 125;
+            // 
             // comment
             // 
             this.comment.HeaderText = "Comment";
@@ -190,7 +198,7 @@ namespace PRsTicketsListing
             this.comment.Name = "comment";
             this.comment.Width = 125;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -198,11 +206,11 @@ namespace PRsTicketsListing
             this.Controls.Add(this.btnGetTicketsData);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ticketsDataTable);
-            this.Name = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "MainForm";
             this.Text = "MarkerTrax Tickets Listing";
             ((System.ComponentModel.ISupportInitialize)(this.ticketsDataTable)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         private void TicketsDataTable_DoubleClick(object sender, System.EventArgs e)
@@ -215,10 +223,10 @@ namespace PRsTicketsListing
         private DataGridView ticketsDataTable;
         private Button button1;
         private Button btnGetTicketsData;
-        private DataGridViewTextBoxColumn jiraTicketNumber;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn createdAt;
         private DataGridViewTextBoxColumn jiraTicketLink;
+        private DataGridViewTextBoxColumn jiraTicketNumber;
         private DataGridViewTextBoxColumn githubLink;
         private DataGridViewTextBoxColumn title;
         private DataGridViewTextBoxColumn projectName;
@@ -227,6 +235,7 @@ namespace PRsTicketsListing
         private DataGridViewTextBoxColumn devDeployed;
         private DataGridViewTextBoxColumn uatDeployed;
         private DataGridViewTextBoxColumn clientNotified;
+        private DataGridViewTextBoxColumn queries;
         private DataGridViewTextBoxColumn comment;
     }
 }

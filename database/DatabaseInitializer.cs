@@ -26,22 +26,47 @@ namespace PRsTicketsListing.database
                 SQLiteConnection.CreateFile(dbPath);
             }
 
-            using (var connection = DatabaseInitializer.GetConnection())
+            ExecuteSqlQueries(Queries.TABLE_CREATE_QUERIES);
+
+            //using (var connection = DatabaseInitializer.GetConnection())
+            //{
+            //    connection.Open();
+
+            //    using (var command = new SQLiteCommand(Queries.CREATE_TABLE_PROJECT_NAMES, connection))
+            //    {
+            //        command.ExecuteNonQuery();
+            //    }
+
+            //    using (var command = new SQLiteCommand(Queries.CREATE_TABLE_TICKETS, connection))
+            //    {
+            //        command.ExecuteNonQuery();
+            //    }
+
+            //    using (var command = new SQLiteCommand(Queries.CREATE_TABLE_TICEKT_QUERIES, connection))
+            //    {
+            //        command.ExecuteNonQuery();
+            //    }
+
+            //    connection.Close();
+            //}
+        }
+
+        private static void ExecuteSqlQueries(params string[] queries)
+        {
+            var connection = GetConnection();
+
+            connection.Open();
+
+            using (var command = new SQLiteCommand(connection))
             {
-                connection.Open();
-
-                using (var command = new SQLiteCommand(Queries.CREATE_TABLE_PROJECT_NAMES, connection))
+                foreach (var query in queries)
                 {
+                    command.CommandText = query;
                     command.ExecuteNonQuery();
                 }
-
-                using (var command = new SQLiteCommand(Queries.CREATE_TABLE_TICKETS, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-
-                connection.Close();
             }
+
+            connection.Close();
         }
 
         private static (string dbFolder, string dbPath) GetDbPaths()

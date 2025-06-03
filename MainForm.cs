@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SQLite;
-using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using PRsTicketsListing.components;
 using PRsTicketsListing.consts;
 using PRsTicketsListing.database;
-using PRsTicketsListing.models;
 
 namespace PRsTicketsListing
 {
@@ -58,6 +55,7 @@ namespace PRsTicketsListing
             ticketsDataTable.Columns["devDeployed"].DataPropertyName = TicketFields.DEV_DEPLOYED;
             ticketsDataTable.Columns["uatDeployed"].DataPropertyName = TicketFields.UAT_DEPLOYED;
             ticketsDataTable.Columns["clientNotified"].DataPropertyName = TicketFields.CLIENT_NOTIFIED;
+            ticketsDataTable.Columns["queries"].DataPropertyName = TicketFields.QUERIES;
             ticketsDataTable.Columns["comment"].DataPropertyName = TicketFields.COMMENT;
 
             List<models.Ticket> tickets = repositories.Ticket.LoadTickets();
@@ -73,15 +71,14 @@ namespace PRsTicketsListing
         private void boolTypeCellFormatter(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (
-                ticketsDataTable.Columns[e.ColumnIndex].Name == "merged" ||
-                ticketsDataTable.Columns[e.ColumnIndex].Name == "devDeployed" ||
-                ticketsDataTable.Columns[e.ColumnIndex].Name == "uatDeployed" ||
-                ticketsDataTable.Columns[e.ColumnIndex].Name == "clientNotified"
+                TicketFields
+                .ticketBoolFields
+                .Contains(ticketsDataTable.Columns[e.ColumnIndex].Name)
                 )
             {
                 if (e.Value is bool boolValue)
                 {
-                    e.Value = boolValue ? "YES" : "NO";
+                    e.Value = boolValue ? Common.YES : Common.NO;
                     e.FormattingApplied = true;
                 }
             }
