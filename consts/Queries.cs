@@ -36,8 +36,17 @@ namespace PRsTicketsListing.consts
         private const string CREATE_TABLE_PROJECT_NAMES = @"
                         CREATE TABLE IF NOT EXISTS projects (
                             id INTEGER PRIMARY KEY AUTOINCREMENT,
-                            name TEXT NOT NULL
+                            name TEXT NOT NULL,
+                            CONSTRAINT unique_project_name UNIQUE(name)
                         )
+                    ";
+
+        private const string INSERT_PROJECT_NAMES = @"
+                        INSERT OR IGNORE INTO [projects] (name) 
+                        VALUES ('Frontend'), 
+                            ('Api'), 
+                            ('MiddleLayer'), 
+                            ('NG Frontend')
                     ";
 
         /**
@@ -52,12 +61,22 @@ namespace PRsTicketsListing.consts
                         )
                     ";
 
-        private const string ADD_QUERIES_COLUMN__TABLE_TICKETS = @"ALTER TABLE tickets ADD COLUMN queries BOOLEAN DEFAULT 0;";
+        private const string ADD_QUERIES_COLUMN_TABLE_TICKETS = @"ALTER TABLE tickets ADD COLUMN queries BOOLEAN DEFAULT 0;";
+
+        private const string CREATE_TABLE_SETTINGS = @"
+                        CREATE TABLE IF NOT EXISTS settings (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            tag TEXT NOT NULL,
+                            value TEXT NOT NULL
+                        )
+                    ";
 
         public static readonly string[] TABLE_CREATE_QUERIES = new string[]{ 
             CREATE_TABLE_TICKETS,
             CREATE_TABLE_PROJECT_NAMES,
-            CREATE_TABLE_TICKET_QUERIES
+            CREATE_TABLE_TICKET_QUERIES,
+            CREATE_TABLE_SETTINGS,
+            INSERT_PROJECT_NAMES
         };
 
         public const string SELECT_TICKETS = @"SELECT 
@@ -104,11 +123,17 @@ namespace PRsTicketsListing.consts
 
         public const string SELECT_PROJECT_NAMES = @"SELECT * FROM [projects]";
 
-        public const string SELECT_TICKET_QUERIES = @"SELECT 
-                                                        queries.id, 
-                                                        queries.ticket_number,
-                                                        queries.description, 
-                                                        queries.query 
-                                                    FROM [queries] WHERE ticket_number = @ticketNumber";
+        public const string SELECT_TICKET_QUERIES = @"
+                                SELECT 
+                                    queries.id, 
+                                    queries.ticket_number,
+                                    queries.description, 
+                                    queries.query 
+                                FROM [queries] WHERE ticket_number = @ticketNumber";
+
+        public const string INSERT_TICKET_QUERY = @"
+                                INSERT INTO queries
+                                    (ticket_number, description, query)
+                                VALUES (@ticket_number, @description, @query)";
     }
 }

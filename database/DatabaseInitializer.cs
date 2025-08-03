@@ -27,28 +27,6 @@ namespace PRsTicketsListing.database
             }
 
             ExecuteSqlQueries(Queries.TABLE_CREATE_QUERIES);
-
-            //using (var connection = DatabaseInitializer.GetConnection())
-            //{
-            //    connection.Open();
-
-            //    using (var command = new SQLiteCommand(Queries.CREATE_TABLE_PROJECT_NAMES, connection))
-            //    {
-            //        command.ExecuteNonQuery();
-            //    }
-
-            //    using (var command = new SQLiteCommand(Queries.CREATE_TABLE_TICKETS, connection))
-            //    {
-            //        command.ExecuteNonQuery();
-            //    }
-
-            //    using (var command = new SQLiteCommand(Queries.CREATE_TABLE_TICEKT_QUERIES, connection))
-            //    {
-            //        command.ExecuteNonQuery();
-            //    }
-
-            //    connection.Close();
-            //}
         }
 
         private static void ExecuteSqlQueries(params string[] queries)

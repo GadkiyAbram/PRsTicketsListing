@@ -45,7 +45,7 @@ namespace PRsTicketsListing.components
             ticketQueriesTable.DataSource = queries;
         }
 
-        private void btnAddQuery_Click(object sender, EventArgs e)
+        private void btnShowAddEditQuery_Click(object sender, EventArgs e)
         {
             var ticketQueryDialog = new TicketAddEditQueriesForm(this.jiraTicketNumber);
 

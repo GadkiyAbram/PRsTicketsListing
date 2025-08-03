@@ -79,7 +79,7 @@
             this.btnAddQuery.TabIndex = 1;
             this.btnAddQuery.Text = "Add";
             this.btnAddQuery.UseVisualStyleBackColor = true;
-            this.btnAddQuery.Click += new System.EventHandler(this.btnAddQuery_Click);
+            this.btnAddQuery.Click += new System.EventHandler(this.btnShowAddEditQuery_Click);
             // 
             // TicketQueriesForm
             // 

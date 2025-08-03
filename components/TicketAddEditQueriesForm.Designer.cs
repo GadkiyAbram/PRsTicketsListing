@@ -80,7 +80,7 @@ namespace PRsTicketsListing.components
             this.buttonAddQuery.TabIndex = 4;
             this.buttonAddQuery.Text = "Add";
             this.buttonAddQuery.UseVisualStyleBackColor = true;
-            this.buttonAddQuery.Click += new System.EventHandler(this.buttonAddQuery_Click);
+            this.buttonAddQuery.Click += new System.EventHandler(this.btnAddQuery_Click);
             // 
             // buttonCancel
             // 
@@ -90,7 +90,7 @@ namespace PRsTicketsListing.components
             this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // TicketAddEditQueriesForm
             // 

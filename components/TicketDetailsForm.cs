@@ -70,42 +70,10 @@ namespace PRsTicketsListing.components
 
         private void updateTicket(SQLiteConnection connection)
         {
-            //this.ticket = new models.Ticket
-            //{
-            //    CreatedAt = this.createdAtInput.Text,
-            //    JiraTicketNumber = this.jiraNumberInput.Text,
-            //    JiraTicketLink = this.jiraTicketLinkInput.Text,
-            //    GithubLink = this.githubLinkInput.Text,
-            //    Title = this.titleInput.Text,
-            //    ProjectId = (int)projectNameInput.SelectedValue,
-            //    TargetBranch = this.targetBranchInput.Text,
-            //    Merged = this.checkBoxMerged.Checked,
-            //    DevDeployed = this.checkBoxDevDeployed.Checked,
-            //    UatDeployed = this.checkBoxUatDeployed.Checked,
-            //    ClientNotified = this.checkBoxClientNotified.Checked,
-            //    Comment = this.commentInput.Text
-            //};
-
-            //var ticketFieldsPrepared = consts.TicketDBFields.GetTicketDbFieldsMapped(true);
             this.ticket = this.CreateThisTicketInstance(false);
 
             using (var command = new SQLiteCommand(Queries.UPDATE_TICKET, connection))
             {
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.ID], (int)this.recordId);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.CREATED_AT], this.ticket.CreatedAt);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.JIRA_NUMBER], this.ticket.JiraTicketNumber);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.JIRA_LINK], this.ticket.JiraTicketLink);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.GITHUB_LINK], this.ticket.GithubLink);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.TITLE], this.ticket.Title);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.PROJECT_ID], this.ticket.ProjectId);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.TARGET_BRANCH], this.ticket.TargetBranch);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.MERGED], this.ticket.Merged);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.DEV_DEPLOYED], this.ticket.DevDeployed);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.UAT_DEPLOYED], this.ticket.UatDeployed);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.CLIENT_NOTIFIED], this.ticket.ClientNotified);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.QUERIES], this.ticket.Queries);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.COMMENT], this.ticket.Comment);
-
                 this.AddParametersToCommand(command, true);
 
                 int rowsUpdated = command.ExecuteNonQuery();
@@ -123,62 +91,10 @@ namespace PRsTicketsListing.components
 
         private void insertTicket(SQLiteConnection connection)
         {
-            //models.Ticket ticket = new models.Ticket
-            //{
-            //    CreatedAt = this.now,
-            //    JiraTicketNumber = this.jiraNumberInput.Text,
-            //    JiraTicketLink = this.jiraTicketLink.Text,
-            //    GithubLink = this.githubLinkInput.Text,
-            //    Title = titleInput.Text,
-            //    ProjectId = (int)this.projectNameInput.SelectedValue,
-            //    TargetBranch = this.targetBranchInput.Text,
-            //    Merged = this.checkBoxMerged.Checked,
-            //    DevDeployed = this.checkBoxDevDeployed.Checked,
-            //    UatDeployed = this.checkBoxUatDeployed.Checked,
-            //    ClientNotified = this.checkBoxClientNotified.Checked,
-            //    Queries = this.checkBoxQueries.Checked,
-            //    Comment = this.commentInput.Text
-            //};
-
-            //this.ticket = new models.Ticket
-            //{
-            //    CreatedAt = this.now,
-            //    JiraTicketNumber = this.jiraNumberInput.Text,
-            //    JiraTicketLink = this.jiraTicketLink.Text,
-            //    GithubLink = this.githubLinkInput.Text,
-            //    Title = titleInput.Text,
-            //    ProjectId = (int)this.projectNameInput.SelectedValue,
-            //    TargetBranch = this.targetBranchInput.Text,
-            //    Merged = this.checkBoxMerged.Checked,
-            //    DevDeployed = this.checkBoxDevDeployed.Checked,
-            //    UatDeployed = this.checkBoxUatDeployed.Checked,
-            //    ClientNotified = this.checkBoxClientNotified.Checked,
-            //    Queries = this.checkBoxQueries.Checked,
-            //    Comment = this.commentInput.Text
-            //};
-
             this.ticket = this.CreateThisTicketInstance(true);
-
-
-            //var ticketFieldsPrepared = consts.TicketDBFields.GetTicketDbFieldsMapped();
 
             using (var command = new SQLiteCommand(Queries.INSERT_TICKET, connection))
             {
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.CREATED_AT], this.ticket.CreatedAt);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.JIRA_NUMBER], this.ticket.JiraTicketNumber);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.JIRA_LINK], this.ticket.JiraTicketLink);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.GITHUB_LINK], this.ticket.GithubLink);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.TITLE], this.ticket.Title);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.PROJECT_ID], this.ticket.ProjectId);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.TARGET_BRANCH], this.ticket.TargetBranch);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.MERGED], this.ticket.Merged);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.MERGED], this.ticket.Merged);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.DEV_DEPLOYED], this.ticket.DevDeployed);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.UAT_DEPLOYED], this.ticket.UatDeployed);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.CLIENT_NOTIFIED], this.ticket.ClientNotified);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.QUERIES], this.ticket.Queries);
-                //command.Parameters.AddWithValue(ticketFieldsPrepared[consts.TicketDBFields.COMMENT], this.ticket.Comment);
-
                 this.AddParametersToCommand(command);
 
                 int rowsInserted = command.ExecuteNonQuery();
@@ -222,23 +138,6 @@ namespace PRsTicketsListing.components
                             this.checkBoxQueries.Checked = Convert.ToBoolean(reader[TicketDBFields.QUERIES]);
                             this.commentInput.Text = reader[TicketDBFields.COMMENT].ToString();
                         }
-
-                        //this.ticket = new models.Ticket
-                        //{
-                        //    CreatedAt = this.createdAtInput.Text,
-                        //    JiraTicketNumber = this.jiraNumberInput.Text,
-                        //    JiraTicketLink = this.jiraTicketLinkInput.Text,
-                        //    GithubLink = this.githubLinkInput.Text,
-                        //    Title = this.titleInput.Text,
-                        //    ProjectId = (int)projectNameInput.SelectedValue,
-                        //    TargetBranch = this.targetBranchInput.Text,
-                        //    Merged = this.checkBoxMerged.Checked,
-                        //    DevDeployed = this.checkBoxDevDeployed.Checked,
-                        //    UatDeployed = this.checkBoxUatDeployed.Checked,
-                        //    ClientNotified = this.checkBoxClientNotified.Checked,
-                        //    Queries = this.checkBoxQueries.Checked,
-                        //    Comment = this.commentInput.Text
-                        //};
 
                         this.ticket = this.CreateThisTicketInstance();
 
