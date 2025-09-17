@@ -58,13 +58,13 @@ namespace PRsTicketsListing.components
 
         private void insertQuery(SQLiteConnection connection)
         {
-            models.Query query = this.createQueryInstance();
+            this.query = this.createQueryInstance();
 
             using (var command = new SQLiteCommand(Queries.INSERT_TICKET_QUERY, connection))
             {
-                command.Parameters.AddWithValue("ticket_number", this.ticketNumber);
-                command.Parameters.AddWithValue("description", this.query.Description);
-                command.Parameters.AddWithValue("query", this.query.QueryContent);
+                command.Parameters.AddWithValue(QueryDBFields.TICKET_NUMBER, this.ticketNumber);
+                command.Parameters.AddWithValue(QueryDBFields.DESCRIPTION, this.query.Description);
+                command.Parameters.AddWithValue(QueryDBFields.QUERY, this.query.QueryContent);
 
                 int rowsInserted = command.ExecuteNonQuery();
 

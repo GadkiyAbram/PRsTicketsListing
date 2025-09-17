@@ -40,35 +40,35 @@ namespace PRsTicketsListing.components
             // 
             // queryContent
             // 
-            this.queryContent.Location = new System.Drawing.Point(115, 12);
+            this.queryContent.Location = new System.Drawing.Point(115, 45);
             this.queryContent.Multiline = true;
             this.queryContent.Name = "queryContent";
-            this.queryContent.Size = new System.Drawing.Size(656, 93);
+            this.queryContent.Size = new System.Drawing.Size(656, 177);
             this.queryContent.TabIndex = 0;
             // 
             // description
             // 
-            this.description.Location = new System.Drawing.Point(116, 111);
+            this.description.Location = new System.Drawing.Point(113, 12);
             this.description.Multiline = true;
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(656, 111);
+            this.description.Size = new System.Drawing.Size(656, 27);
             this.description.TabIndex = 1;
             // 
             // labelQueryContent
             // 
             this.labelQueryContent.AutoSize = true;
-            this.labelQueryContent.Location = new System.Drawing.Point(67, 15);
+            this.labelQueryContent.Location = new System.Drawing.Point(60, 125);
             this.labelQueryContent.Name = "labelQueryContent";
-            this.labelQueryContent.Size = new System.Drawing.Size(43, 16);
+            this.labelQueryContent.Size = new System.Drawing.Size(47, 17);
             this.labelQueryContent.TabIndex = 2;
             this.labelQueryContent.Text = "Query";
             // 
             // labelQueryDescription
             // 
             this.labelQueryDescription.AutoSize = true;
-            this.labelQueryDescription.Location = new System.Drawing.Point(35, 114);
+            this.labelQueryDescription.Location = new System.Drawing.Point(28, 15);
             this.labelQueryDescription.Name = "labelQueryDescription";
-            this.labelQueryDescription.Size = new System.Drawing.Size(75, 16);
+            this.labelQueryDescription.Size = new System.Drawing.Size(79, 17);
             this.labelQueryDescription.TabIndex = 3;
             this.labelQueryDescription.Text = "Description";
             // 
@@ -96,7 +96,7 @@ namespace PRsTicketsListing.components
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 275);
+            this.ClientSize = new System.Drawing.Size(781, 283);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAddQuery);
             this.Controls.Add(this.labelQueryDescription);
@@ -109,7 +109,6 @@ namespace PRsTicketsListing.components
             this.Text = "Add New Query";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

@@ -19,6 +19,7 @@ namespace PRsTicketsListing.components
         {
             InitializeComponent();
             this.checkBoxQueries.CheckedChanged += btnQueries_CheckedChange;
+            this.jiraNumberInput.TextChanged += jiraNumberInput_TextChanged;
 
             this.initializeProjectNamesCombobox();
 
@@ -159,7 +160,7 @@ namespace PRsTicketsListing.components
                 JiraTicketLink = this.jiraTicketLinkInput.Text,
                 GithubLink = this.githubLinkInput.Text,
                 Title = titleInput.Text,
-                ProjectId = (int)this.projectNameInput.SelectedValue,
+                ProjectId = (int) this.projectNameInput.SelectedValue,
                 TargetBranch = this.targetBranchInput.Text,
                 Merged = this.checkBoxMerged.Checked,
                 DevDeployed = this.checkBoxDevDeployed.Checked,
@@ -217,6 +218,20 @@ namespace PRsTicketsListing.components
                     this.jiraNumberInput.Text != "" || 
                     this.ticket != null
                 );
+        }
+
+        private void jiraNumberInput_TextChanged(object sender, EventArgs e)
+        {
+            string ticketNumber = this.jiraNumberInput.Text;
+            
+            if (ticketNumber.Contains("MP-"))
+            {
+                this.jiraTicketLinkInput.Text = $"https://markertrax.atlassian.net/browse/{ticketNumber}"; 
+            }
+            else
+            {
+                this.jiraTicketLinkInput.Text = "";
+            }
         }
 
         private void showTicketQueries_Click(object sender, EventArgs e)

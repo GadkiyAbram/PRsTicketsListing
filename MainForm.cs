@@ -10,12 +10,19 @@ namespace PRsTicketsListing
 {
     public partial class MainForm : Form
     {
+        private ContextMenuStrip cellMenu;
         public MainForm()
         {
             InitializeComponent();
             DatabaseInitializer.InitDatabase();
             this.loadData();
             ticketsDataTable.CellFormatting += this.boolTypeCellFormatter;
+
+            cellMenu = new ContextMenuStrip();
+
+            cellMenu.Items.Add("Queries", null, (s, e) => { MessageBox.Show("Queries clicked"); });
+
+            ticketsDataTable.CellMouseClick += ticketsDataTable_CellMouseClick;
         }
 
         private void showAddNewRecord_Click(object sender, EventArgs e)
@@ -81,6 +88,16 @@ namespace PRsTicketsListing
                     e.Value = boolValue ? Common.YES : Common.NO;
                     e.FormattingApplied = true;
                 }
+            }
+        }
+
+        private void ticketsDataTable_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0) {
+                ticketsDataTable.ClearSelection();
+                ticketsDataTable.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
+
+                cellMenu.Show(Cursor.Position);
             }
         }
     }
